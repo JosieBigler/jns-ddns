@@ -1,10 +1,11 @@
 import boto3
 from botocore.exceptions import ClientError
+import os
 
 def update_ip(new_ip):
     session = boto3.Session(
-        aws_access_key_id='AKIAXORAA2BDBEVWF7XI',
-        aws_secret_access_key='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'
+        aws_access_key_id=os.environ['ACCESS_KEY'],
+        aws_secret_access_key=os.environ['SECRET_KEY']
     )
 
     client = session.client('route53')
